@@ -1,0 +1,139 @@
+/**
+ * Para crear los huecos entre cajas se trabaja con margin 
+ * y no con la propiedad gap de flexbox para evitar problemas
+ * con navegadores que no la soportan, especialmente
+ * en dispositivos móviles:
+ * https://caniuse.com/flexbox-gap
+ */
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+div, header, main section, footer {
+  box-sizing: border-box;
+  padding: 20px;
+}
+
+.container div {
+  padding: 10px;
+}
+
+.wrapper {
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+header, main section, footer {
+  background-color: #000;
+}
+
+
+/* HEADER ********************************************************************/
+
+header .container:first-child {
+  display: flex;
+  margin-bottom: 10px;
+  background-color: #2b4358;
+}
+
+header .container:first-child div {
+  margin: 0 10px;
+  background-color: #fd4b58;
+}
+
+header .container:first-child div:first-child {
+  flex: 1;
+  margin-left: 0;
+}
+
+header .container:first-child div:last-child {
+  flex: 1;
+  margin-right: 0;
+}
+
+header .container:first-child div:nth-child(2) {
+  flex: 4.5;
+}
+
+header .container:last-child {
+  background-color: #ff734a;
+}
+
+header .container:last-child div {
+  background-color: #ffd070;
+}
+
+
+/* MAIN **********************************************************************/
+
+main {
+  margin: 20px 0;
+}
+
+main section {
+  display: flex;
+}
+
+main .container:first-child {
+  flex: 2;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #4e4f68;
+}
+
+main .container:first-child div:not(:last-child) {
+  flex: 1 40%;
+  margin-bottom: 20px;
+  background-color: #006faa;
+}
+
+main .container:first-child div:not(:last-child):nth-child(odd) {
+  margin-right: 10px;
+}
+
+main .container:first-child div:not(:last-child):nth-child(even) {
+  margin-left: 10px;
+}
+
+main .container:first-child div:last-child {
+  flex: 2 100%;
+  background-color: #60a3c0;
+}
+
+main .container:last-child {
+  flex: 1;
+  margin-left: 20px;
+  background-color: #ff2f54;
+}
+
+main .container:last-child div {
+  background-color: #ffe78f;
+}
+
+main .container:last-child div:first-child {
+  margin-bottom: 10px;
+}
+
+
+/* FOOTER ********************************************************************/
+
+footer .container {
+  padding: 10px;
+  background-color: #f0aa48;
+}
+
+
+/* REPONSIVE *****************************************************************/
+
+@media only screen and (max-width: 991px) {
+  main section {
+    flex-direction: column;
+    background-color: #fffc52;
+  }
+
+  main .container:last-child {
+    margin: 20px 0 0;
+  }
+}
